@@ -184,7 +184,7 @@ export default function PanasTest() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-8 lg:w-[300px] lg:shrink-0">
+          <div className="flex flex-col gap-8 lg:w-75 lg:shrink-0">
             <div className="rounded-xl bg-secondary/25 p-4 md:p-6">
               <div className="flex items-center gap-2 pb-3 text-xl font-bold">
                 <FontAwesomeIcon
