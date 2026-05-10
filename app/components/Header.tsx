@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Начало" },
@@ -15,6 +16,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/60 bg-background/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(57,56,47,0.06)]">
@@ -40,10 +42,35 @@ export default function Header() {
           })}
         </nav>
 
-        <button className="lg:hidden rounded-full border border-outline/30 px-4 py-2 text-sm font-semibold text-on-surface-variant">
-          Меню
+        <button
+          className="lg:hidden rounded-full border border-outline/30 px-4 py-2 text-sm font-semibold text-on-surface-variant"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-expanded={menuOpen}
+          aria-label="Отвори меню"
+        >
+          {menuOpen ? "Затвори" : "Меню"}
         </button>
       </div>
+
+      {menuOpen && (
+        <nav className="lg:hidden absolute left-0 right-0 border-t border-white/60 bg-background/95 backdrop-blur-xl px-4 pb-4 shadow-lg">
+          {navLinks.map(({ href, label }) => {
+            const active =
+              pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
+
+            return (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className={`block py-3 font-semibold transition-colors border-b border-outline/10 last:border-0 ${active ? "text-primary" : "text-on-surface-variant hover:text-primary"}`}
+              >
+                {label}
+              </Link>
+            );
+          })}
+        </nav>
+      )}
     </header>
   );
 }
