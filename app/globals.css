@@ -95,7 +95,7 @@
   }
 
   h3 {
-    @apply text-2xl font-bold leading-[1.25] text-on-surface;
+    @apply text-2xl font-bold leading-tight text-on-surface;
   }
 
   h4 {

@@ -119,7 +119,7 @@ export default function PanasTest() {
 
             <div
               className="flex flex-col items-center gap-8 rounded-xl border border-black/10 px-4 py-8 md:px-8 md:py-10">
-              <h2 className="max-w-[30rem] text-center text-2xl sm:text-[1.75rem]">
+              <h2 className="max-w-120 text-center text-2xl sm:text-[1.75rem]">
                 {currentQuestion + 1}. {questions[currentQuestion]}
               </h2>
 
