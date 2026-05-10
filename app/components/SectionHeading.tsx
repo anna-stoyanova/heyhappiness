@@ -22,7 +22,7 @@ export default function SectionHeading({
         {title}
       </h2>
       {description ? (
-        <p className="max-w-3xl text-base md:text-lg text-on-surface-variant leading-relaxed">
+        <p className="max-w-3xl text-on-surface-variant leading-relaxed">
           {description}
         </p>
       ) : null}

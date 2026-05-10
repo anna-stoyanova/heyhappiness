@@ -44,7 +44,7 @@ export default async function BlogPostPage({
           {post.data.title}
         </h1>
       </header>
-      <Markdown className="max-w-none text-lg leading-relaxed">
+      <Markdown className="max-w-none leading-relaxed">
         {post.content}
       </Markdown>
     </article>

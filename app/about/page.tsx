@@ -1,13 +1,14 @@
 import ContentMosaic from "../components/ContentMosaic";
+import PageLayout from "../components/PageLayout";
 import { getAboutPage } from "@/lib/site-content";
 
 export default function AboutPage() {
   const about = getAboutPage();
 
   return (
-    <div className="py-6 md:py-8">
+    <PageLayout>
       {about ? <ContentMosaic items={[about]} reverseOrder /> : null}
-    </div>
+    </PageLayout>
   );
 }
 

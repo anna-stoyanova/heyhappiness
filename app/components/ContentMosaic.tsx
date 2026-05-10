@@ -66,7 +66,7 @@ export default async function ContentMosaic({
                     {item.data.title}
                   </h3>
                 )}
-                <Markdown className="space-y-4 text-base md:text-lg leading-relaxed text-on-surface-variant">
+                <Markdown className="space-y-4 leading-relaxed text-on-surface-variant">
                   {item.content}
                 </Markdown>
               </div>

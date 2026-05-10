@@ -39,7 +39,7 @@ export default function Home() {
                   <h2 className="font-headline text-2xl md:text-3xl font-bold text-on-surface leading-tight">
                     {interview.data.title}
                   </h2>
-                  <Markdown className="space-y-4 text-base md:text-lg leading-relaxed text-on-surface-variant">
+                  <Markdown className="space-y-4 leading-relaxed text-on-surface-variant">
                     {interview.content}
                   </Markdown>
                 </div>

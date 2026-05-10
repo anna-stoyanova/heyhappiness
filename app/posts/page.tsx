@@ -1,12 +1,13 @@
 import BlogGrid from "../components/BlogGrid";
 import SectionHeading from "../components/SectionHeading";
+import PageLayout from "../components/PageLayout";
 import { getBlogPosts } from "@/lib/site-content";
 
 export default function PostsPage() {
   const posts = getBlogPosts();
 
   return (
-    <div className="space-y-12 py-6 md:py-8">
+    <PageLayout className="space-y-12">
       <section className="mx-auto max-w-7xl px-4 md:px-8">
         <SectionHeading
           eyebrow="Блог"
@@ -15,7 +16,7 @@ export default function PostsPage() {
         />
       </section>
       <BlogGrid items={posts} />
-    </div>
+    </PageLayout>
   );
 }
 

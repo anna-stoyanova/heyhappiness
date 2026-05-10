@@ -32,7 +32,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className={`text-sm font-semibold transition-colors ${active ? "text-primary border-b-2 border-primary pb-1" : "text-on-surface-variant hover:text-primary"}`}
+                className={`font-semibold transition-colors ${active ? "text-primary border-b-2 border-primary pb-1" : "text-on-surface-variant hover:text-primary"}`}
               >
                 {label}
               </Link>

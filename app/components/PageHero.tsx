@@ -37,7 +37,7 @@ export default function PageHero({
             </h1>
           ) : null}
           {subtitle ? (
-            <div className="max-w-3xl text-base md:text-lg text-white/90 leading-relaxed">
+            <div className="max-w-3xl text-white/90 leading-relaxed">
               {subtitle}
             </div>
           ) : null}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import ContentMosaic from "../components/ContentMosaic";
+import PageLayout from "../components/PageLayout";
 import { getResourcesByCategory } from "@/lib/site-content";
 
 export default function ResourcesPage() {
@@ -9,7 +10,7 @@ export default function ResourcesPage() {
   const courses = getResourcesByCategory("courses");
 
   return (
-    <div className="space-y-16 py-6 md:py-8">
+    <PageLayout className="space-y-16">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <PageHero image="/images/main-books.webp" />
       </div>
@@ -27,7 +28,7 @@ export default function ResourcesPage() {
                 <br />
                 PANAS Тест.
               </h3>
-              <p className="max-w-2xl text-base md:text-lg leading-relaxed text-on-surface-variant">
+              <p className="max-w-2xl leading-relaxed text-on-surface-variant">
                 Положителното и отрицателното афективно разписание (PANAS) е един
                 от най-широко използваните методи за измерване на емоционалните
                 състояния в психологията. Разберете своя профил за по-малко от 5
@@ -57,7 +58,7 @@ export default function ResourcesPage() {
 
       <ContentMosaic sectionTitle="КНИГИ" items={books} />
       <ContentMosaic sectionTitle="КУРСОВЕ" items={courses} />
-    </div>
+    </PageLayout>
   );
 }
 

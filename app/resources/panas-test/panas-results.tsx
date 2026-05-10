@@ -1,47 +1,83 @@
-import styles from "./panas-results.module.css";
+import { calculateScores, getProfile } from './panas-profiles';
 
 type PanasResultsProps = {
-  profile: {
-    emoji: string;
-    name: string;
-    description: string;
-  };
-  scores: {
-    pa: number;
-    na: number;
-  };
-  onReset: () => void;
+  answers: number[];
+  onRetake: () => void;
 };
 
-export default function PanasResults({ profile, scores, onReset }: PanasResultsProps) {
+const levelLabel: Record<string, string> = {
+  low: 'Нисък',
+  mid: 'Среден',
+  high: 'Висок',
+};
+
+export default function PanasResults({ answers, onRetake }: PanasResultsProps) {
+  const { pa, na, paLevel, naLevel } = calculateScores(answers);
+  const profile = getProfile(paLevel, naLevel);
+
   return (
-    <section className={styles.pageWrap}>
-      <header className={styles.header}>
-        <p className={styles.kicker}>PANAS резултат</p>
-        <h1 className={styles.title}>
-          Вашият профил: {profile.emoji} {profile.name}
-        </h1>
-      </header>
+    <div className="mx-auto flex max-w-180 flex-col items-center gap-8 pt-16">
+      <div className="flex flex-col items-center gap-3 text-center">
+        <span className="text-6xl leading-none">{profile.emoji}</span>
+        <h2 className="text-3xl sm:text-5xl">{profile.name}</h2>
+      </div>
 
-      <article className={styles.resultCard}>
-        <p className={styles.description}>{profile.description}</p>
-
-        <div className={styles.scoreGrid}>
-          <div className={styles.scoreItem}>
-            <p className={styles.scoreLabel}>Положителен афект (PA)</p>
-            <p className={styles.scoreValue}>{scores.pa}</p>
+      <div className="grid w-full gap-4 md:grid-cols-2 md:gap-8">
+        <div className="flex flex-col gap-2 rounded-xl bg-primary/10 p-4">
+          <span className="text-sm font-bold uppercase text-on-surface">
+            Положителен афект (PA)
+          </span>
+          <span className="text-5xl font-extrabold text-on-background">{pa}</span>
+          <span className="text-sm font-bold text-primary">
+            {levelLabel[paLevel]}
+          </span>
+          <div className="h-2 w-full overflow-hidden rounded bg-primary/20">
+            <div
+              className="h-full rounded bg-primary transition-[width] duration-700"
+              style={{ width: `${((pa - 10) / 40) * 100}%` }}
+            />
           </div>
-          <div className={styles.scoreItem}>
-            <p className={styles.scoreLabel}>Отрицателен афект (NA)</p>
-            <p className={styles.scoreValue}>{scores.na}</p>
+          <div className="flex justify-between text-xs text-on-surface">
+            <span>10</span>
+            <span>50</span>
           </div>
         </div>
-      </article>
+        <div className="flex flex-col gap-2 rounded-xl bg-primary/10 p-4">
+          <span className="text-sm font-bold uppercase text-on-surface">
+            Отрицателен афект (NA)
+          </span>
+          <span className="text-5xl font-extrabold text-on-background">{na}</span>
+          <span className="text-sm font-bold text-primary">
+            {levelLabel[naLevel]}
+          </span>
+          <div className="h-2 w-full overflow-hidden rounded bg-primary/20">
+            <div
+              className="h-full rounded bg-tertiary transition-[width] duration-700"
+              style={{ width: `${((na - 10) / 40) * 100}%` }}
+            />
+          </div>
+          <div className="flex justify-between text-xs text-on-surface">
+            <span>10</span>
+            <span>50</span>
+          </div>
+        </div>
+      </div>
 
-      <button type="button" onClick={onReset} className={styles.primaryButton}>
+      <div className="flex flex-col gap-4">
+        {profile.description.split('\n\n').map((paragraph, i) => (
+          <p key={i} className="pb-0 text-on-surface">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        className="rounded-full border border-primary bg-transparent px-5 py-2 font-extrabold text-primary transition-colors hover:bg-primary hover:text-white"
+        onClick={onRetake}
+      >
         Направи теста отново
       </button>
-    </section>
+    </div>
   );
 }
-
