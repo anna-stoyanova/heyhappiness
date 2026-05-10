@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* ── Fonts ─────────────────────────────────────────────────────────────── */
+  --font-headline: var(--font-sofia-sans), "Sofia Sans", sans-serif;
+  --font-body: var(--font-sofia-sans), "Sofia Sans", sans-serif;
+  --font-label: var(--font-sofia-sans), "Sofia Sans", sans-serif;
+  /* Aliases matching Stitch class names */
+  --font-sofia-sans: var(--font-sofia-sans), "Sofia Sans", sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* ── Border Radius (ROUND_EIGHT system) ────────────────────────────────── */
+  --radius: 0.25rem;       /* DEFAULT — 4px  */
+  --radius-lg: 0.5rem;     /* lg      — 8px  */
+  --radius-xl: 0.75rem;    /* xl      — 12px */
+  --radius-2xl: 1.5rem;    /* 2xl     — 24px (bento cards) */
+  --radius-full: 9999px;   /* full    — pill */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* ── Colors — Primary ──────────────────────────────────────────────────── */
+  --color-primary: #975134;
+  --color-primary-dim: #894629;
+  --color-primary-container: #ffad8d;
+  --color-primary-fixed: #ffad8d;
+  --color-primary-fixed-dim: #f59e7b;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #662b11;
+  --color-on-primary-fixed: #4a1701;
+  --color-on-primary-fixed-variant: #713419;
+  --color-inverse-primary: #f8a07d;
+
+  /* ── Colors — Secondary ────────────────────────────────────────────────── */
+  --color-secondary: #786200;
+  --color-secondary-dim: #6a5600;
+  --color-secondary-container: #ffe17a;
+  --color-secondary-fixed: #ffe17a;
+  --color-secondary-fixed-dim: #f3d25d;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #625000;
+  --color-on-secondary-fixed: #4d3e00;
+  --color-on-secondary-fixed-variant: #6e5a00;
+
+  /* ── Colors — Tertiary ─────────────────────────────────────────────────── */
+  --color-tertiary: #346d6d;
+  --color-tertiary-dim: #276161;
+  --color-tertiary-container: #aee7e7;
+  --color-tertiary-fixed: #aee7e7;
+  --color-tertiary-fixed-dim: #a0d9d9;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #1a5757;
+  --color-on-tertiary-fixed: #004344;
+  --color-on-tertiary-fixed-variant: #266061;
+
+  /* ── Colors — Surface ──────────────────────────────────────────────────── */
+  --color-surface: #fffbff;
+  --color-surface-dim: #e6e3d3;
+  --color-surface-bright: #fffbff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fdf9f1;
+  --color-surface-container: #f7f3ea;
+  --color-surface-container-high: #f1eee2;
+  --color-surface-container-highest: #ece8db;
+  --color-surface-tint: #975134;
+  --color-surface-variant: #ece8db;
+  --color-on-surface: #39382f;
+  --color-on-surface-variant: #66655a;
+  --color-inverse-surface: #0f0e0b;
+  --color-inverse-on-surface: #9f9d97;
+
+  /* ── Colors — Background ───────────────────────────────────────────────── */
+  --color-background: #fffbff;
+  --color-on-background: #39382f;
+
+  /* ── Colors — Outline ──────────────────────────────────────────────────── */
+  --color-outline: #838175;
+  --color-outline-variant: #bcb9ad;
+
+  /* ── Colors — Error ────────────────────────────────────────────────────── */
+  --color-error: #b33938;
+  --color-error-dim: #70030f;
+  --color-error-container: #f56965;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #65000b;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
 }
+
+.markdown {
+  display: grid;
+  gap: 1rem;
+  color: var(--color-on-surface-variant);
+  line-height: 1.8;
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  font-family: var(--font-headline), serif;
+  color: var(--color-on-surface);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown h2 {
+  font-size: 1.875rem;
+}
+
+.markdown h3 {
+  font-size: 1.5rem;
+}
+
+.markdown h4 {
+  font-size: 1.25rem;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol {
+  margin: 0;
+}
+
+.markdown ul,
+.markdown ol {
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.markdown li {
+  margin: 0;
+}
+
+.markdown a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.markdown strong {
+  color: var(--color-on-surface);
+}
+
+.markdown blockquote {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--color-primary);
+  background: var(--color-surface-container);
+  border-radius: 1rem;
+}
+
