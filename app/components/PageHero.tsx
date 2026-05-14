@@ -17,7 +17,7 @@ export default function PageHero({ image, className = "", children }: PageHeroPr
 
       {/* Right column — portrait image */}
       <div className="relative">
-        <div className="relative z-10 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative z-10 aspect-4/5 rounded-2xl overflow-hidden shadow-2xl">
           <Image
             src={image}
             alt=""
