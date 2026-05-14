@@ -3,49 +3,34 @@ import type { ReactNode } from "react";
 
 type PageHeroProps = Readonly<{
   image: string;
-  title?: ReactNode;
-  subtitle?: ReactNode;
   className?: string;
   children?: ReactNode;
 }>;
 
-export default function PageHero({
-  image,
-  title,
-  subtitle,
-  className = "",
-  children,
-}: PageHeroProps) {
+export default function PageHero({ image, className = "", children }: PageHeroProps) {
   return (
     <section
-      className={`relative isolate flex min-h-112 items-end overflow-hidden rounded-4xl md:min-h-136 ${className}`}
+      className={`max-w-7xl mx-auto px-6 py-12 md:py-24 grid md:grid-cols-2 gap-12 items-center ${className}`}
     >
-      <Image
-        src={image}
-        alt=""
-        fill
-        priority={false}
-        className="object-cover object-center"
-        sizes="100vw"
-      />
-      <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/30 to-black/10" />
-      <div className="relative z-10 w-full px-6 py-10 md:px-10 md:py-12 text-white">
-        <div className="max-w-5xl mx-auto space-y-4">
-          {title ? (
-            <h1 className="font-headline text-3xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg max-w-4xl">
-              {title}
-            </h1>
-          ) : null}
-          {subtitle ? (
-            <div className="max-w-3xl text-white/90 leading-relaxed">
-              {subtitle}
-            </div>
-          ) : null}
-          {children}
+      {/* Left column — content */}
+      <div className="space-y-8">{children}</div>
+
+      {/* Right column — portrait image */}
+      <div className="relative">
+        <div className="relative z-10 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+          <Image
+            src={image}
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
+        {/* Decorative blurs */}
+        <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary-container/30 rounded-full blur-3xl" />
+        <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-secondary-container/20 rounded-full blur-3xl" />
       </div>
     </section>
   );
 }
-
-
