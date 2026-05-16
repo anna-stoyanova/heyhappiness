@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "./Markdown";
@@ -27,14 +28,16 @@ export default async function BlogGrid({ items, className = "" }: BlogGridProps)
             key={post.slug}
             className={`overflow-hidden rounded-4xl bg-surface-container-low shadow-[0_12px_40px_rgba(57,56,47,0.06)] ${index % 2 === 1 ? "lg:translate-y-8" : ""}`}
           >
-            <Link href={post.pathname} className="block">
-              <Image
-                src={post.data.image}
-                alt={post.data.title}
-                width={900}
-                height={650}
-                className="h-72 w-full object-cover"
-              />
+            <Link href={post.pathname} className="block" transitionTypes={["nav-forward"]}>
+              <ViewTransition name={`blog-image-${post.slug}`}>
+                <Image
+                  src={post.data.image}
+                  alt={post.data.title}
+                  width={900}
+                  height={650}
+                  className="h-72 w-full object-cover"
+                />
+              </ViewTransition>
             </Link>
             <div className="space-y-4 p-6 md:p-8">
               <h2 className="font-headline text-2xl font-bold text-on-surface leading-tight">

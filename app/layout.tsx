@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Sofia_Sans} from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
@@ -28,7 +29,22 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <ViewTransition
+              enter={{
+                "nav-forward": "nav-forward",
+                "nav-back": "nav-back",
+                default: "crossfade",
+              }}
+              exit={{
+                "nav-forward": "nav-forward",
+                "nav-back": "nav-back",
+                default: "crossfade",
+              }}
+            >
+              {children}
+            </ViewTransition>
+          </main>
           <Footer />
         </body>
     </html>

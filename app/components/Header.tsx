@@ -19,7 +19,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/60 bg-background/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(57,56,47,0.06)]">
+    <header className="sticky top-0 z-50 border-b border-white/60 bg-background/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(57,56,47,0.06)]" style={{ viewTransitionName: "site-header" }}>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 md:px-8">
         <Link href="/" className="font-headline text-xl md:text-2xl font-bold text-primary">
           <strong>АннA</strong> - Архитект на щастие
@@ -34,6 +34,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
+                transitionTypes={[href === "/" ? "nav-back" : "nav-forward"]}
                 className={`font-semibold transition-colors ${active ? "text-primary border-b-2 border-primary pb-1" : "text-on-surface-variant hover:text-primary"}`}
               >
                 {label}
@@ -63,6 +64,7 @@ export default function Header() {
                 key={href}
                 href={href}
                 onClick={() => setMenuOpen(false)}
+                transitionTypes={[href === "/" ? "nav-back" : "nav-forward"]}
                 className={`block py-3 font-semibold transition-colors border-b border-outline/10 last:border-0 ${active ? "text-primary" : "text-on-surface-variant hover:text-primary"}`}
               >
                 {label}
