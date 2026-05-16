@@ -19,6 +19,7 @@ type ContentMosaicProps = Readonly<{
   eyebrow?: string;
   description?: string;
   reverseOrder?: boolean;
+  imageCover?: boolean;
   className?: string;
 }>;
 
@@ -28,6 +29,7 @@ export default async function ContentMosaic({
   eyebrow,
   description,
   reverseOrder = false,
+  imageCover = true,
   className = "",
 }: ContentMosaicProps) {
   return (
@@ -48,19 +50,19 @@ export default async function ContentMosaic({
           return (
             <article
               key={item.slug}
-              className={`flex flex-col gap-6 overflow-hidden rounded-4xl bg-surface-container-low p-4 shadow-[0_12px_40px_rgba(57,56,47,0.06)] md:flex-row md:items-center md:gap-10 md:p-6 ${isReverse ? "md:flex-row-reverse" : ""}`}
+              className={`flex flex-col gap-6 overflow-hidden rounded-4xl bg-surface-container-low shadow-[0_12px_40px_rgba(57,56,47,0.06)] md:flex-row md:items-stretch md:gap-10 ${isReverse ? "md:flex-row-reverse" : ""}`}
             >
-              <div className="w-full shrink-0 overflow-hidden rounded-[1.5rem] md:w-1/2">
+              <div className="relative w-full shrink-0 overflow-hidden min-h-64 md:w-1/2 md:min-h-0">
                 <Image
                   src={item.data.image}
                   alt={item.data.title}
-                  width={800}
-                  height={533}
-                  className="h-full w-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={imageCover ? "object-cover" : "object-contain"}
                 />
               </div>
 
-              <div className="w-full space-y-4 md:w-1/2">
+              <div className="w-full space-y-4 px-4 pb-4 md:w-1/2 md:px-6 md:py-6">
                 {item.data.hideTitle ? null : (
                   <h3 className="font-headline text-2xl md:text-3xl font-bold text-on-surface leading-tight">
                     {item.data.title}

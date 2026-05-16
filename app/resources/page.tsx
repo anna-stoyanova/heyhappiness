@@ -11,9 +11,13 @@ export default function ResourcesPage() {
 
   return (
     <PageLayout className="space-y-16">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <PageHero image="/images/main-books.webp" />
-      </div>
+      <PageHero
+        image="/images/main-books.webp"
+        className="max-w-none px-0 py-0 grid-cols-1 md:grid-cols-1"
+        imageContainerClassName="aspect-[21/9] rounded-3xl"
+        imageClassName="w-full"
+        showDecorations={false}
+      />
 
       <section className="mx-auto max-w-7xl px-4 md:px-8">
         <SectionHeading title="ТЕСТОВЕ" className="mb-10" />
@@ -56,13 +60,8 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <ContentMosaic sectionTitle="КНИГИ" items={books} />
-      <ContentMosaic sectionTitle="КУРСОВЕ" items={courses} />
+      <ContentMosaic sectionTitle="КНИГИ" items={books} imageCover={false} />
+      <ContentMosaic sectionTitle="КУРСОВЕ" items={courses} imageCover={false} />
     </PageLayout>
   );
 }
-
-
-
-
-

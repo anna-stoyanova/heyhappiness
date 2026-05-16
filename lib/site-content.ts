@@ -150,3 +150,8 @@ export const getEventsHero = () =>
 export const getEventsPosts = () =>
   getEvents().filter((event) => event.data.category === "posts");
 
+export const getEventSlugs = () => getEventsPosts().map((event) => event.slug);
+
+export const getEventBySlug = (slug: string) =>
+  getEventsPosts().find((event) => event.slug === slug);
+
