@@ -44,8 +44,8 @@ function sortByDate<T extends { date?: string | Date }>(entries: ContentEntry<T>
 function stripMarkdown(markdown: string) {
   return markdown
     .replace(/```[\s\S]*?```/g, "")
-    .replace(/!\[[^\]]*]\([^)]*\)/g, "")
-    .replace(/\[([^\]]+)]\([^)]*\)/g, "$1")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
     .replace(/[*_`>#-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();

@@ -22,7 +22,7 @@ export default function Footer() {
               </p>
               <ul className="space-y-2">
                 <li><Link href="/about">За мен</Link></li>
-                <li><Link href="/services">Услуги</Link></li>
+                <li><Link href="/services">Сесии</Link></li>
                 <li><Link href="/posts">Блог</Link></li>
                 <li><Link href="/events">Събития</Link></li>
               </ul>

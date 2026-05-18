@@ -15,7 +15,6 @@ export default function ResourcesPage() {
         image="/images/main-books.webp"
         className="max-w-none px-0 py-0 grid-cols-1 md:grid-cols-1"
         imageContainerClassName="aspect-[21/9] rounded-3xl"
-        imageClassName="w-full"
         showDecorations={false}
       />
 
@@ -61,7 +60,6 @@ export default function ResourcesPage() {
       </section>
 
       <ContentMosaic sectionTitle="КНИГИ" items={books} imageCover={false} />
-      <ContentMosaic sectionTitle="КУРСОВЕ" items={courses} imageCover={false} />
     </PageLayout>
   );
 }

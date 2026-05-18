@@ -22,7 +22,7 @@ export default function PageHero({
 
   return (
     <section
-      className={`max-w-7xl mx-auto px-6 py-12 md:py-24 grid ${hasChildren ? "md:grid-cols-2" : "grid-cols-1"} gap-12 items-center ${className}`}
+      className={`max-w-7xl mx-auto px-6 py-6 md:py-12 grid ${hasChildren ? "md:grid-cols-2" : "grid-cols-1"} gap-12 items-center ${className}`}
     >
       {/* Left column — content */}
       {hasChildren ? <div className="space-y-8">{children}</div> : null}
