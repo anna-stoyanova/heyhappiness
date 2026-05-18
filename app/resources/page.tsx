@@ -7,7 +7,6 @@ import { getResourcesByCategory } from "@/lib/site-content";
 
 export default function ResourcesPage() {
   const books = getResourcesByCategory("books");
-  const courses = getResourcesByCategory("courses");
 
   return (
     <PageLayout className="space-y-16">
