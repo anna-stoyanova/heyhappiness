@@ -1,8 +1,8 @@
-import BlogGrid from "../components/BlogGrid";
-import Markdown from "../components/Markdown";
-import PageHero from "../components/PageHero";
-import SectionHeading from "../components/SectionHeading";
-import PageLayout from "../components/PageLayout";
+import BlogGrid from "../../components/BlogGrid";
+import Markdown from "../../components/Markdown";
+import PageHero from "../../components/PageHero";
+import SectionHeading from "../../components/SectionHeading";
+import PageLayout from "../../components/PageLayout";
 import {
   excerptFromMarkdown,
   getEventsHero,

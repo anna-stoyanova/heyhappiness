@@ -1,6 +1,6 @@
-import ContentMosaic from "../components/ContentMosaic";
-import SectionHeading from "../components/SectionHeading";
-import PageLayout from "../components/PageLayout";
+import ContentMosaic from "../../components/ContentMosaic";
+import SectionHeading from "../../components/SectionHeading";
+import PageLayout from "../../components/PageLayout";
 import { getLectures } from "@/lib/site-content";
 
 export default function LecturerPage() {

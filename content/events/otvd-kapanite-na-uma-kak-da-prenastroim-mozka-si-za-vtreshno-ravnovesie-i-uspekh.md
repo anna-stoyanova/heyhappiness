@@ -33,6 +33,6 @@ category: posts
 
 **Вземете контрола над вътрешния си свят и превърнете ума си в свой най-силен съюзник.**
 
-🎟 **Билети и регистрация:**[ https://womenshealthforum.pro/](https://womenshealthforum.pro/)
+🎟 **Билети и регистрация:** [https://womenshealthforum.pro/](https://womenshealthforum.pro/)
 
-![](/images/Inside-lecitre.webp)
+![Лекция в залата](/images/Inside-lecitre.webp)

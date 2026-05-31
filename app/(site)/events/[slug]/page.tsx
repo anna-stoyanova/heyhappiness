@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Markdown from "../../components/Markdown";
+import Markdown from "../../../components/Markdown";
 import { getEventBySlug, getEventSlugs } from "@/lib/site-content";
 
 export function generateStaticParams() {

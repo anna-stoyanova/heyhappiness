@@ -1,8 +1,8 @@
 import Link from "next/link";
-import PageHero from "../components/PageHero";
-import SectionHeading from "../components/SectionHeading";
-import ContentMosaic from "../components/ContentMosaic";
-import PageLayout from "../components/PageLayout";
+import PageHero from "../../components/PageHero";
+import SectionHeading from "../../components/SectionHeading";
+import ContentMosaic from "../../components/ContentMosaic";
+import PageLayout from "../../components/PageLayout";
 import { getResourcesByCategory } from "@/lib/site-content";
 
 export default function ResourcesPage() {

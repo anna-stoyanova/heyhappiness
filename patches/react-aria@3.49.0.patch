@@ -1,0 +1,42 @@
+diff --git a/node_modules/react-aria/.bun-tag-faac24e702a4454 b/.bun-tag-faac24e702a4454
+new file mode 100644
+index 0000000000000000000000000000000000000000..e69de29bb2d1d6434b8b29ae775ad8c2e48c5391
+diff --git a/dist/private/utils/openLink.cjs b/dist/private/utils/openLink.cjs
+index befde5533e06dfcf5aea3bfcb5f7690625ef0d19..30142d444249b29e34f422fe79a3c9f2368d7e75 100644
+--- a/dist/private/utils/openLink.cjs
++++ b/dist/private/utils/openLink.cjs
+@@ -153,7 +153,7 @@ function $75bd88aab025820b$export$7e924b3091a3bd18(props) {
+             'download',
+             'ping',
+             'referrerPolicy'
+-        ])if (key in props) linkProps[key] = key === 'href' ? href : props[key];
++        ])if (key in props && props[key] != null) linkProps[key] = key === 'href' ? href : props[key];
+     }
+     return linkProps;
+ }
+diff --git a/dist/private/utils/openLink.js b/dist/private/utils/openLink.js
+index 2a4e5b0d6a4ef05d0617618e2f02699754321064..612862bebf8a5f71bc46533cb75f60b9d7d442e6 100644
+--- a/dist/private/utils/openLink.js
++++ b/dist/private/utils/openLink.js
+@@ -139,7 +139,7 @@ function $044d3c97ce5d6621$export$7e924b3091a3bd18(props) {
+             'download',
+             'ping',
+             'referrerPolicy'
+-        ])if (key in props) linkProps[key] = key === 'href' ? href : props[key];
++        ])if (key in props && props[key] != null) linkProps[key] = key === 'href' ? href : props[key];
+     }
+     return linkProps;
+ }
+diff --git a/dist/private/utils/openLink.mjs b/dist/private/utils/openLink.mjs
+index 547b63e883b1d4db11d981a8a610e938401a2735..fcff2edd3d8291d58a9cb91cfb3afbbcac8ad055 100644
+--- a/dist/private/utils/openLink.mjs
++++ b/dist/private/utils/openLink.mjs
+@@ -136,7 +136,7 @@ function $caaf0dd3060ed57c$export$7e924b3091a3bd18(props) {
+             'download',
+             'ping',
+             'referrerPolicy'
+-        ])if (key in props) linkProps[key] = key === 'href' ? href : props[key];
++        ])if (key in props && props[key] != null) linkProps[key] = key === 'href' ? href : props[key];
+     }
+     return linkProps;
+ }

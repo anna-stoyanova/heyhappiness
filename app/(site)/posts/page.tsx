@@ -1,6 +1,6 @@
-import BlogGrid from "../components/BlogGrid";
-import SectionHeading from "../components/SectionHeading";
-import PageLayout from "../components/PageLayout";
+import BlogGrid from "../../components/BlogGrid";
+import SectionHeading from "../../components/SectionHeading";
+import PageLayout from "../../components/PageLayout";
 import { getBlogPosts } from "@/lib/site-content";
 
 export default function PostsPage() {

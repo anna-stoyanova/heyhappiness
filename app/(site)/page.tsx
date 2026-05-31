@@ -1,7 +1,7 @@
 import Image from "next/image";
-import PageHero from "./components/PageHero";
-import SectionHeading from "./components/SectionHeading";
-import Markdown from "./components/Markdown";
+import PageHero from "../components/PageHero";
+import SectionHeading from "../components/SectionHeading";
+import Markdown from "../components/Markdown";
 import { getInterviews } from "@/lib/site-content";
 import Link from "next/link";
 

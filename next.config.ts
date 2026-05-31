@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ['127.0.0.1'],
   experimental: {
     viewTransition: true,
   },
@@ -8,7 +9,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "happiness.bymany.bg",
+        hostname: "heyhappiness.org",
         pathname: "/images/**",
       },
     ],

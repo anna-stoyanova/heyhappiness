@@ -1,6 +1,6 @@
-import ContentMosaic from "../components/ContentMosaic";
-import SectionHeading from "../components/SectionHeading";
-import PageLayout from "../components/PageLayout";
+import ContentMosaic from "../../components/ContentMosaic";
+import SectionHeading from "../../components/SectionHeading";
+import PageLayout from "../../components/PageLayout";
 import { getServicesByCategory } from "@/lib/site-content";
 
 const categoryOptions = {
