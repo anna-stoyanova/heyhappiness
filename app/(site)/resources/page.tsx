@@ -3,10 +3,12 @@ import PageHero from "../../components/PageHero";
 import SectionHeading from "../../components/SectionHeading";
 import ContentMosaic from "../../components/ContentMosaic";
 import PageLayout from "../../components/PageLayout";
-import { getResourcesByCategory } from "@/lib/site-content";
+import AudioCard from "../../components/AudioCard";
+import { getResourcesByCategory, getAudioResources } from "@/lib/site-content";
 
 export default function ResourcesPage() {
   const books = getResourcesByCategory("books");
+  const audioItems = getAudioResources();
 
   return (
     <PageLayout className="space-y-16">
@@ -59,6 +61,17 @@ export default function ResourcesPage() {
       </section>
 
       <ContentMosaic sectionTitle="КНИГИ" items={books} imageCover={false} />
+
+      {audioItems.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 md:px-8">
+          <SectionHeading title="АУДИО" className="mb-10" />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {audioItems.map((entry) => (
+              <AudioCard key={entry.slug} {...entry.data} />
+            ))}
+          </div>
+        </section>
+      )}
     </PageLayout>
   );
 }

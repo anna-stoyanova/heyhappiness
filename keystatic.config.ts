@@ -1,7 +1,7 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
 
 const storage = {
-  kind: "github" as const,
+  kind: "local" as const,
   repo: {
     owner: "anna-stoyanova",
     name: "heyhappiness"
@@ -116,6 +116,31 @@ export default config({
           description: "e.g. /images/my-image.webp",
         }),
         hideTitle: fields.checkbox({ label: "Hide Title", defaultValue: false }),
+        content: fields.markdoc({ label: "Content", extension: "md" }),
+      },
+    }),
+
+    audio: collection({
+      label: "Audio",
+      slugField: "title",
+      path: "content/audio/*",
+      format: { contentField: "content" },
+      schema: {
+        title: fields.slug({ name: { label: "Title" } }),
+        date: fields.datetime({ label: "Date" }),
+        image: fields.text({
+          label: "Image",
+          description: "e.g. /images/my-image.webp",
+        }),
+        audioUrl: fields.text({
+          label: "Audio URL",
+          description: "e.g. /audio/episode.mp3",
+        }),
+        duration: fields.text({
+          label: "Duration",
+          description: "e.g. 45:30",
+        }),
+        summary: fields.text({ label: "Summary", multiline: true }),
         content: fields.markdoc({ label: "Content", extension: "md" }),
       },
     }),

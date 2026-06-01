@@ -83,6 +83,15 @@ export type ResourceData = {
   hideTitle?: boolean;
 };
 
+export type AudioData = {
+  title: string;
+  date: string;
+  image?: string;
+  audioUrl: string;
+  duration?: string;
+  summary?: string;
+};
+
 export type ServiceData = {
   title: string;
   date: string;
@@ -129,6 +138,9 @@ export const getResources = () =>
 
 export const getResourcesByCategory = (category: ResourceData["category"]) =>
   getResources().filter((resource) => resource.data.category === category);
+
+export const getAudioResources = () =>
+  sortByDate(readCollection<AudioData>("audio", "audio"));
 
 export const getServices = () =>
   sortByDate(readCollection<ServiceData>("services", "services"));
