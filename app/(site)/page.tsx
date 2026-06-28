@@ -27,7 +27,7 @@ export default function Home() {
         {/* CTAs */}
         <div className="flex flex-wrap gap-4">
           <Link
-            href="/posts"
+            href="/services"
             className="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg"
           >
             Започнете сега
