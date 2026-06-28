@@ -1,12 +1,9 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
 
-const storage = {
-  kind: "local" as const,
-  repo: {
-    owner: "anna-stoyanova",
-    name: "heyhappiness"
-  }
-}
+const storage =
+  process.env.KEYSTATIC_STORAGE_KIND === "github"
+    ? { kind: "github" as const, repo: { owner: "anna-stoyanova", name: "heyhappiness" } }
+    : { kind: "local" as const };
 export default config({
   storage,
   ui: {
@@ -132,9 +129,11 @@ export default config({
           label: "Image",
           description: "e.g. /images/my-image.webp",
         }),
-        audioUrl: fields.text({
-          label: "Audio URL",
-          description: "e.g. /audio/episode.mp3",
+        audio: fields.file({
+          label: "Audio File",
+          description: "Upload an audio file (mp3, m4a, wav, ogg)",
+          directory: "public/audio",
+          publicPath: "/audio/",
         }),
         duration: fields.text({
           label: "Duration",

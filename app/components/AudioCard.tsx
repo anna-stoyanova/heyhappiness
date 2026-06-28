@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { AudioData } from "@/lib/site-content";
 
-export default function AudioCard({ title, image, audioUrl, duration, summary }: AudioData) {
+export default function AudioCard({ title, image, audio, duration, summary }: AudioData) {
   return (
     <article className="flex flex-col overflow-hidden rounded-4xl bg-surface-container-low shadow-[0_12px_40px_rgba(57,56,47,0.06)]">
       {image && (
@@ -26,7 +26,7 @@ export default function AudioCard({ title, image, audioUrl, duration, summary }:
           <p className="leading-relaxed text-on-surface-variant">{summary}</p>
         )}
 
-        <audio controls src={audioUrl} className="mt-auto w-full" />
+        <audio controls controlsList="nodownload" src={audio} className="mt-auto w-full" />
       </div>
     </article>
   );

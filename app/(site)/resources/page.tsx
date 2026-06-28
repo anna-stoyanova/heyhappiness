@@ -60,11 +60,9 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <ContentMosaic sectionTitle="КНИГИ" items={books} imageCover={false} />
-
       {audioItems.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 md:px-8">
-          <SectionHeading title="АУДИО" className="mb-10" />
+          <SectionHeading title="МЕДИТАЦИИ" className="mb-10" />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {audioItems.map((entry) => (
               <AudioCard key={entry.slug} {...entry.data} />
@@ -72,6 +70,9 @@ export default function ResourcesPage() {
           </div>
         </section>
       )}
+
+      <ContentMosaic sectionTitle="КНИГИ" items={books} imageCover={false} />
+
     </PageLayout>
   );
 }

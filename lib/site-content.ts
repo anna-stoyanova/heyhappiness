@@ -87,7 +87,7 @@ export type AudioData = {
   title: string;
   date: string;
   image?: string;
-  audioUrl: string;
+  audio: string;
   duration?: string;
   summary?: string;
 };
